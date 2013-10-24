@@ -2,7 +2,7 @@
 import os, sys
 gettext = lambda s: s
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
-PUBLIC_DIR = os.path.join(PROJECT_PATH, 'public')
+PUBLIC_DIR = os.path.join(PROJECT_PATH, '..', 'public')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
