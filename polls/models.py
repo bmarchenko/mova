@@ -49,13 +49,11 @@ class Profile(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
 
+    def __unicode__(self):
+        return self.name
+
 class Poll(models.Model):
-    NO_UKR_CHOICES = (
-        ("service", u"Обслуговування"),
-        ("menu", u"Меню"),
-        ("bill", u"Рахунок"),
-        ("check", u"Чек")
-    )
+
     FEED_BOOK_CHOICES = (
         ("nothing", u"Без ЗАпису до книги"),
         ("added", u"Зроблено запис у книги про вказані порушення"),
@@ -71,3 +69,6 @@ class Poll(models.Model):
     feedback_book = models.CharField(choices=FEED_BOOK_CHOICES, max_length=100)
     date = models.DateField(default=datetime.date.today)
     user = models.ForeignKey(Profile)
+    
+    def __unicode__(self):
+        return "{0} - {1}".format(self.place.title, date)
