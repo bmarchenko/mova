@@ -71,4 +71,4 @@ class Poll(models.Model):
     user = models.ForeignKey(Profile)
 
     def __unicode__(self):
-        return "{0} - {1}".format(self.place.title, self.date)
+        return "{0} - {1}".format(self.place.title, self.user.name)
