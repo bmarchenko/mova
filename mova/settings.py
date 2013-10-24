@@ -8,12 +8,24 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+     ('Bogdan Marchenko', 'me@bmarchenko.com'),
 )
 
 MANAGERS = ADMINS
 
+MEDIA_ROOT = os.path.join(PUBLIC_DIR, "media")
+MEDIA_URL = "/media/"
+ADMIN_MEDIA_PREFIX="/static/admin/"
 
+STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static-root')
+STATIC_URL = '/static/'   # TODO: tweak this on staging to test with cloudfront CND
+ADMIN_TOOLS_MEDIA_URL = "/static/"
+TIME_ZONE = 'America/Chicago'
+USE_TZ = True
+from imp import find_module
+STATICFILES_DIRS = (
+    os.path.join(PUBLIC_DIR, 'static'),
+    )
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -43,28 +55,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.path.join(PUBLIC_DIR, "media")
-ADMIN_MEDIA_PREFIX="/static/admin/"
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = "/media/"
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static-root')
-
-# URL prefix for static files.
-# Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    os.path.join(PUBLIC_DIR, 'static'),
-    )
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -97,7 +88,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mova.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'mova.wsgi.application'
+#WSGI_APPLICATION = 'mova.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
