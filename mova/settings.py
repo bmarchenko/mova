@@ -5,16 +5,15 @@ PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 PUBLIC_DIR = os.path.join(os.path.dirname(PROJECT_PATH), 'public')
 MEDIA_ROOT = os.path.join(PUBLIC_DIR, "media")
 MEDIA_URL = "/media/"
-ADMIN_MEDIA_PREFIX="/static/admin/"
 
 STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static-root')
 STATIC_URL = '/static/'   # TODO: tweak this on staging to test with cloudfront CND
-ADMIN_TOOLS_MEDIA_URL = "/static/"
 TIME_ZONE = 'America/Chicago'
 USE_TZ = True
 from imp import find_module
 STATICFILES_DIRS = (
     os.path.join(PUBLIC_DIR, 'static'),
+    os.path.join(PUBLIC_DIR, 'static-root'),
     )
 
 DEBUG = True
