@@ -12,8 +12,9 @@ TIME_ZONE = 'America/Chicago'
 USE_TZ = True
 from imp import find_module
 STATICFILES_DIRS = (
+    PUBLIC_DIR,
     os.path.join(PUBLIC_DIR, 'static'),
-    os.path.join(PUBLIC_DIR, 'static-root'),
+    os.path.join(PUBLIC_DIR, 'static', 'admin'),
     )
 
 DEBUG = True
