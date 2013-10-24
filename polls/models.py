@@ -67,3 +67,4 @@ class Poll(models.Model):
     no_ukr = models.CharField(choices=NO_UKR_CHOICES, max_length=100)
     feedback_book = models.CharField(choices=FEED_BOOK_CHOICES, max_length=100)
     date = models.DateField(default=datetime.date.today)
+    user = models.ForeignKey(Profile)

@@ -7,7 +7,7 @@ MEDIA_ROOT = os.path.join(PUBLIC_DIR, "media")
 MEDIA_URL = "/media/"
 
 STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static-root')
-STATIC_URL = '/static/'   # TODO: tweak this on staging to test with cloudfront CND
+STATIC_URL = 'http://bmarchenko.com/static/'   # TODO: tweak this on staging to test with cloudfront CND
 TIME_ZONE = 'America/Chicago'
 USE_TZ = True
 from imp import find_module
