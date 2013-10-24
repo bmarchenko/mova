@@ -69,6 +69,6 @@ class Poll(models.Model):
     feedback_book = models.CharField(choices=FEED_BOOK_CHOICES, max_length=100)
     date = models.DateField(default=datetime.date.today)
     user = models.ForeignKey(Profile)
-    
+
     def __unicode__(self):
-        return "{0} - {1}".format(self.place.title, date)
+        return "{0} - {1}".format(self.place.title, self.date)
