@@ -64,7 +64,10 @@ class Poll(models.Model):
     )
 
     place = models.ForeignKey(Place)
-    no_ukr = models.CharField(choices=NO_UKR_CHOICES, max_length=100)
+    service = models.BooleanField(verbose_name=u"Обслуговування")
+    menu = models.BooleanField(verbose_name=u"Меню")
+    bill = models.BooleanField(verbose_name=u"Рахунок")
+    check = models.BooleanField(verbose_name=u"Чек")
     feedback_book = models.CharField(choices=FEED_BOOK_CHOICES, max_length=100)
     date = models.DateField(default=datetime.date.today)
     user = models.ForeignKey(Profile)
