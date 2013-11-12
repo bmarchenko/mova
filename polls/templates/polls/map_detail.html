@@ -1,0 +1,10 @@
+{% load maps_tags %}
+                      <form class="address-search-form">{% csrf_token %}
+                        <input type="hidden" class="map" name="map" value="{{ object.id }}">
+                        <select name="color" class="color">
+                            <option value="1">червоний</option>
+                            <option value="2">жовтий</option>
+                            <option value="3">зелений</option>
+                        </select>
+                    </form>
+{% display_map object %}

@@ -7,7 +7,7 @@ MEDIA_ROOT = os.path.join(PUBLIC_DIR, "media")
 MEDIA_URL = "/media/"
 
 STATIC_ROOT = os.path.join(PUBLIC_DIR, 'static-root')
-STATIC_URL = 'http://bmarchenko.com/static/'   # TODO: tweak this on staging to test with cloudfront CND
+STATIC_URL = '/static/'   # TODO: tweak this on staging to test with cloudfront CND
 TIME_ZONE = 'America/Chicago'
 USE_TZ = True
 from imp import find_module
@@ -40,7 +40,7 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 SITE_ID = 1
 
@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mova.urls'
+ROOT_URLCONF = 'polls.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'mova.wsgi.application'
@@ -120,7 +120,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'django.contrib.gis',
+    'south',
+    'annoying',
     'polls',
+
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

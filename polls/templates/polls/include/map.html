@@ -1,0 +1,30 @@
+{% load l10n %}
+
+{% if not maps_js_included %}
+    <script  src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}javascripts/google-maps.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}javascripts/maps-search.js"></script>
+{% endif %}
+<script>
+  {% localize off %}
+    var points{{ map.id }} = new Array();
+    {% for point in map.place_set.all %}
+        points{{ map.id }}.push({
+            title: "{{ point.title }}",
+            address: "{{ point.address|safe }}",
+            color: "{{ point.color }}",
+            type: "{{ point.type }}",
+            lat: {{point.geometry.y}},
+            lng: {{point.geometry.x}}
+        });
+    {% endfor %}
+{% endlocalize %}
+
+$(document).ready(function() {
+    initialize($('#map-'+{{ map.id }}), points{{ map.id }});
+})
+</script>
+
+<div class="map-container" id="map-{{ map.id }}"></div>
+
